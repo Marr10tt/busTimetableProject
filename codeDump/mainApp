@@ -5,6 +5,18 @@ import tkinter.ttk
 #creates an empty deafault tkinter screen
 mainScreen = tkinter.Tk()
 
-#calls mainScreen window
-mainScreen.mainloop()
+def configMain():
+    myfont = font.Font(family = 'american typewriter') #creates a font variable to be used
+    mainScreen.geometry("1920x1080") #window size
+    mainScreen.title("Brighter Futures Bus application") #window title
+    mainScreen.config(bg="#8D16D8")
 
+def configHeader():
+    headerLabel = tkinter.Label(text="Header Test")
+    headerLabel.place(relx=0.5, rely=0)
+
+#calls functions
+func = configMain()
+func = configHeader()
+
+mainScreen.mainloop()
