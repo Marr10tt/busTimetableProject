@@ -1,3 +1,4 @@
+from importlib import import_module
 import tkinter
 import tkinter.font as font
 import tkinter.ttk
@@ -15,6 +16,8 @@ def configMain():
 def configHeader():
     headerLabel = tkinter.Label(text="Header Test")
     headerLabel.place(relx=0.5, rely=0)
+
+mapGenerationCode.generate()
 
 #calls functions
 func = configMain()

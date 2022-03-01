@@ -1,4 +1,3 @@
-from turtle import window_height
 import tkinter
 import tkinter.ttk
 from tkintermapview import TkinterMapView
