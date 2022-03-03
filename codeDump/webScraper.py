@@ -7,12 +7,11 @@ r = requests.get(url)
 
 soup = BeautifulSoup(r.content, 'html5lib')
 
-quotes=[]
+allData=[]
+i = 0
+divContainer = soup.findAll('td')
+for td in divContainer:
+    allData.append(divContainer[i].text)
+    i+=1
 
-table = soup.find('table')
-
-tableData = table.findAll('td')
-for td in tableData:
-    quotes.append(td.text)
-
-print(quotes)
+#table = soup.find('table')
