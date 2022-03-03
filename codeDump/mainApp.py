@@ -3,6 +3,7 @@ import tkinter
 import tkinter.font as font
 import tkinter.ttk
 import mapGenerationCode
+import webScraper
 
 #creates an empty deafault tkinter screen
 mainScreen = tkinter.Tk()

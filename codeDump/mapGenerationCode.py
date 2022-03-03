@@ -2,9 +2,9 @@ import tkinter
 import tkinter.ttk
 from tkintermapview import TkinterMapView
 
-windowWidth = 0
-windowHeight = 0
-Location = ""
+windowWidth = 100
+windowHeight = 100
+Location = "Doncaster, England"
 
 def generate():
     map_widget = TkinterMapView(width=windowWidth, height=windowHeight, corner_radius=0)
