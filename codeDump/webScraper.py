@@ -3,7 +3,8 @@ import csv
 import requests
 
 def webScrape():
-    url = "https://bustimes.org/services/22-worksop-doncaster-3"
+    print("get urls from bustimes.org or the first bus website - other urls may not be compatible")
+    url = input("Input exact URL to obtain timetable data:")
     r = requests.get(url)   
     soup = BeautifulSoup(r.content, 'html5lib')
 
