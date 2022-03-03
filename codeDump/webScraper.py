@@ -7,11 +7,11 @@ r = requests.get(url)
 
 soup = BeautifulSoup(r.content, 'html5lib')
 
-allData=[]
 i = 0
 divContainer = soup.findAll('td')
 for td in divContainer:
-    allData.append(divContainer[i].text)
+    with open('rawData.txt', 'a') as f:
+        f.write((divContainer[i].text+'\n'))
     i+=1
 
 #table = soup.find('table')
