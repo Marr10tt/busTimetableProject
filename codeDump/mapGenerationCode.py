@@ -1,13 +1,25 @@
 import tkinter
 import tkinter.ttk
+from turtle import window_height
 from tkintermapview import TkinterMapView
 
-windowWidth = 100
-windowHeight = 100
-Location = "Doncaster, England"
+#empty template variables
+windowWidth = 0
+windowHeight = 0
+Location = ""
 
-def generate():
+#configures settings for map height, width, and displayed location
+def mapSettings(width, height, location):
+    global windowWidth
+    global windowHeight
+    global Location
+    windowWidth = width
+    windowHeight = height
+    Location = location
+
+#generates the actual map selecting source, location, and places the map
+def generate(windowWidth, windowHeight, Location):
     map_widget = TkinterMapView(width=windowWidth, height=windowHeight, corner_radius=0)
     map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=22)
     map_widget.set_address(Location, marker=True)
-    map_widget.place(relx=0.2, rely=0.53)
+    map_widget.place(relx=0.2, rely=0.53, anchor=tkinter.CENTER)
