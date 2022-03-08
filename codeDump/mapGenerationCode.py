@@ -1,6 +1,5 @@
 import tkinter
 import tkinter.ttk
-from turtle import window_height
 from tkintermapview import TkinterMapView
 
 #empty template variables

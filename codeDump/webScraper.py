@@ -23,5 +23,5 @@ def webScrape():
     for td in tdContainer:
         with open(completeFileName, 'a') as openFile:
             openFile.write((tdContainer[tdValue].text+'\n'))
-        openFile.close()
         tdValue+=1
+    openFile.close()
