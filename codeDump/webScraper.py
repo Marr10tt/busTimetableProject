@@ -47,4 +47,4 @@ def totalTables():
 
 def lineCount():
     with open(completeFileName, 'r') as openFile:
-    fileLength = len(openFile.readlines())
+        fileLength = len(openFile.readlines())
