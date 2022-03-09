@@ -3,19 +3,18 @@ import csv
 import requests
 import os
 
-#main web scraping function
+#gets and requests data from the url
+url = "https://www.firstbus.co.uk/doncaster/plan-journey/timetables/?day=1&source_id=2&service=72%2F72x%2F73%2F73x&routeid=23935110&operator=34&source=sp"
+urlRequest = requests.get(url)   
+soup = BeautifulSoup(urlRequest.content, 'html5lib')
+
+#configures file and path naming
+fileName = input("Input File Name:")+'.txt'
+pathName = ('/Users/mackenziemarriott/Documents/GitHub/busTimetableProject/codeDump/testFiles/txtTests')
+completeFileName = os.path.join(pathName, fileName)
+
+#main web scraping function - finds all needed data and writes to text file
 def webScrape():
-    #gets and requests data from the url
-    print("get urls from bustimes.org or the first bus website - other urls may not be compatible")
-    url = input("Input exact URL to obtain timetable data:")
-    urlRequest = requests.get(url)   
-    soup = BeautifulSoup(urlRequest.content, 'html5lib')
-
-    #configures file and path naming
-    fileName = input("Input File Name:")+'.txt'
-    pathName = ('/Users/mackenziemarriott/Documents/GitHub/busTimetableProject/codeDump/testFiles/txtTests')
-    completeFileName = os.path.join(pathName, fileName)
-
     #finds all elements with tag 'td' and writes them into the text file
     tdValue = 0
     tdContainer = soup.findAll('td')
@@ -25,3 +24,27 @@ def webScrape():
             openFile.write((tdContainer[tdValue].text+'\n'))
         tdValue+=1
     openFile.close()
+
+#function to find the height of a first bus table - not including notes row
+def tableHeight():
+    totalHeight = 0
+    tableHeightContainer = soup.findAll('tr', attrs={"class": "table_alt"})
+    for tr in tableHeightContainer:
+        totalHeight+=1
+        print(totalHeight)
+    tableHeightContainer = soup.findAll('tr', attrs={"class" : "table_alt"})
+    for tr in tableHeightContainer:
+        totalHeight+=1
+        print(totalHeight)
+
+#finds total amount of tables on a page
+def totalTables():
+    totalTableCount = 0
+    tableCount = soup.findAll("tr", attrs={"class":"bodytextbold"})
+    for tr in tableCount:
+        totalTableCount+=1
+        print(totalTableCount)
+
+def lineCount():
+    with open(completeFileName, 'r') as openFile:
+    fileLength = len(openFile.readlines())
