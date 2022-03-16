@@ -38,6 +38,7 @@ def webScrape():
 #function to find the height of a first bus table - not including notes row
 def tableHeight():
 	global totalHeight
+	global heightPerTable
 	tableHeightContainer = soup.findAll('tr', attrs={"class": "table_alt"})
 	for tr in tableHeightContainer:
 		totalHeight+=1
@@ -45,14 +46,21 @@ def tableHeight():
 	for tr in tableHeightContainer:
 		totalHeight+=1
 
+	#calculates the average height of each table
+	firstColumns = soup.findAll("td", attrs={"class":"first-column"})
+	for td in firstColumns:
+		heightPerTable+=1
+	heightPerTable=int(heightPerTable/totalTableCount)
+
 #counts the total number of columns in each table
 def tableWidth():
 	global widthPerTable
 	total=0
-	firstRow = soup.find("tr", attrs={"class":"table_main"})
-	for td in firstRow:
+	firstRow = soup.find("span", attrs={"class":"magenta_on"})
+	for i in range (1, (len(firstRow)+1)):
 		total+=1
-	widthPerTable.append(total-3)
+	total+=(totalTableCount)
+	widthPerTable.append(total)
 
 #finds total amount of tables on a page
 def totalTables():
@@ -63,30 +71,21 @@ def totalTables():
 		totalTableCount+=1
 
 #creates dictionary of dimensions for all tables on a page
-def tableInput():
+def fileInput():
 	global tableDict
 	global totalTableCount
 	global heightPerTable
-
 	tableDict = []
-	tableHeight=0
-
 	lineTracker = 0
 	file = open(completeFileName)
 	fileContent = file.readlines()
-	firstColumns = soup.findAll("td", attrs={"class":"first-column"})
-
 	#makes array 3D for amount of tables
 	for i in range(0,totalTableCount):
 		tableDict.append([])
-	for td in firstColumns:
-		tableHeight+=1
-	
-	#calculates the height of each table
-	heightperTable=int(tableHeight/totalTableCount)
+
 	#makes the smaller arrays, one for each table line
 	for i in range(0, totalTableCount):
-		for x in range(0,heightperTable):
+		for x in range(0,heightPerTable):
 			tableDict[i].append([])
 			for b in range(0,11):
 				tableDict[i][x].append(fileContent[lineTracker])
@@ -99,7 +98,6 @@ def lineCount():
 	global fileLength
 	with open(completeFileName, 'r') as openFile:
 		fileLength = len(openFile.readlines())
-		print(fileLength)
 
 #makes empty arrays to function as dimensions for each table
 def tableDimensions():
@@ -111,9 +109,14 @@ def tableDimensions():
 		dimensionArray[i].append(heightPerTable)
 	print(dimensionArray)
 
+#finds out overall data 
 lineCount()
 totalTables()
-tableInput()
+
+#calculates dimensions of timetables
 tableHeight()
 tableWidth()
 tableDimensions()
+
+#inputs timetable data to file and 3D array
+fileInput()

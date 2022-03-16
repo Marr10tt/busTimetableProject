@@ -4,6 +4,7 @@ import tkinter.font as font
 import tkinter.ttk
 import mapGenerationCode
 import webScraper
+import tables
 
 #creates an empty deafault tkinter screen
 mainScreen = tkinter.Tk()
@@ -27,7 +28,11 @@ def configHeader():
 
 #calls both necessary functions to place the map onto the main screen
 mapGenerationCode.mapSettings(400, 600, "doncaster")
-mapGenerationCode.generate(mapGenerationCode.windowWidth, mapGenerationCode.windowHeight, mapGenerationCode.Location)
+mapGenerationCode.generate()
+
+#calls functions to generate the correct table
+tables.tableSettings(700, 750, 0.65, 0.53)
+tables.generateTable()
 
 #calls functions to configure the main page layout
 func = configMain()
