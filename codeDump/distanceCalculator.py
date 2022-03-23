@@ -1,4 +1,4 @@
-#route modules
+#routing modules
 import openrouteservice
 from openrouteservice import convert
 import json
@@ -8,28 +8,35 @@ import folium
 from geopy.geocoders import Nominatim
 
 #variables to store locational data
+#starting long/lat
 coordLong = ""
 coordLat = ""
 
-endCoordLat = ""
+#ending long/lat
 endCoordLong = ""
+endCoordLat = ""
 
 #takes address and converts to latitude and longitude to use in distance calculation
-def coordGet(startLocation, endLocation):
-    global coords
+def coordGet(endLocation):
+    #starting coord lat/long
     global coordLat
     global coordLong
+    #ending coord lat/long
     global endCoordLat
     global endCoordLong
 
+    #specifies which geolocation service to use (nominatim)
     geolocator = Nominatim(user_agent="alevel-application")
-    coords = geolocator.geocode(startLocation)
+    #configures starting coordinates
+    coords = geolocator.geocode("College Road Doncaster")
     coordLat = coords.latitude
     coordLong = coords.longitude
+    #configures ending coordinates
     endCoords = geolocator.geocode(endLocation)
     endCoordLat = endCoords.latitude
     endCoordLong = endCoords.longitude
 
+#configures routing so that distance/time data can be taken 
 def routing():
     #starting point coords
     global coordLong
@@ -52,10 +59,10 @@ def routing():
     decoded = convert.decode_polyline(geometry)
 
     #configures map settings
-    m = folium.Map(location=[coordLat, coordLong],zoom_start=15, control_scale=True,tiles="cartodbpositron")
+    m = folium.Map(location=[coordLat, coordLong],zoom_start=15, control_scale=True,tiles="openstreetmap")
     #creates and saves map
     folium.GeoJson(decoded).add_to(m)
     m.save('map.html')
 
-coordGet("19 Langsett court Doncaster", "2 Littleworth lane Doncaster")
+coordGet("Thorne Road Doncaster")
 routing()

@@ -42,7 +42,7 @@ def inputVal():
     if username in userPassDict:
         if userPassDict[username] == password:
             loginScreen.destroy()
-            mainApp.main()
+            mainApp.mainFunc()
         else:
             #removes 1 try, displays appropriate message
             loginTries-=1
