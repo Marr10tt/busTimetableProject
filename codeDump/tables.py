@@ -1,5 +1,8 @@
 from tkinter import *
 from tkinter import ttk 
+import distanceCalculator
+import os
+import webbrowser
 
 tableHeight = 0
 tableWidth = 0
@@ -16,8 +19,11 @@ def tableSettings(height, width, x, y):
     tableX=x
     tableY=y
 
-def generateTable():
-    tableFrame = Frame()
+def generateTable(self, pageName):
+    routeList = open('routeList.txt', 'r')
+    content=routeList.readlines()
+
+    tableFrame = Frame(pageName)
     tableFrame.config(height=tableHeight, width=tableWidth)
     tableFrame.place(relx=tableX, rely=tableY, anchor=CENTER)
 
@@ -32,8 +38,17 @@ def generateTable():
     timetable.heading("#1", text="route number")
     timetable.heading("#2", text="route name")
 
-    timetable.insert(parent='', index='end', iid=1, text="", values=("73", "Lakeside circular"))
-    timetable.insert(parent='', index='end', iid=2, text="", values=("72", "Lakeside circular"))
-    timetable.insert(parent='', index='end', iid=3, text="", values=("81", "Armthorpe circular"))
+    def OnDoubleClick(pageName):
+        distanceCalculator.coordGet("Bawtry Road")
+        distanceCalculator.routing()
+        fileName = 'file:///'+os.getcwd()+'/'+'map.html'
+        webbrowser.open_new_tab(fileName)
 
+    timetable.bind("<Double-1>", OnDoubleClick)
+
+    i=0
+
+    while i<(len(content)-1) and i<20:
+        timetable.insert(parent='', index='end', iid=i+1, text="", values=(content[i], content[i+1]))
+        i+=2
     timetable.pack()

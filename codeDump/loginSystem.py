@@ -3,6 +3,7 @@ from tkinter import *
 import tkinter.font
 import hashlib
 import mainApp
+import configurePage
 
 loginScreen = Tk()
 
@@ -17,12 +18,6 @@ loginTries = 3
 invalidMessageText = ("invalid username or password, you have", loginTries, "attempts remaining")
 invalidMessage = tkinter.Label(text=invalidMessageText, bg='#8D16D8', font='Helvetica 18 bold', fg="red")
 
-#configures the default state of the login screen
-def pageConfig():
-    loginScreen.geometry("1920x1080")
-    loginScreen.config(bg="#8D16D8")
-    loginScreen.title("Login Screen")
-
 #all code to validate user input - including hashing values
 def inputVal():
     #imports necessary variables
@@ -36,11 +31,13 @@ def inputVal():
 
     #converts password input to hashed value
     password=hashlib.sha256((passBox.get()).encode()).hexdigest()
-    print(password)
 
     #checks for the username in the dictionary
     if username in userPassDict:
         if userPassDict[username] == password:
+            if username=="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918":
+                mainApp.admin=True
+                print("Admin enabled")
             loginScreen.destroy()
             mainApp.mainFunc()
         else:
@@ -70,15 +67,15 @@ userBox = tkinter.Entry()
 passBox = tkinter.Entry(show="*")
 
 #places text boxes and their headings
-userLabel.place(relx=0.5, rely=0.4, anchor=CENTER)
-userBox.place(relx=0.5, rely=0.45, anchor=CENTER)
+userLabel.place(relx=0.5, rely=0.3, anchor=CENTER)
+userBox.place(relx=0.5, rely=0.4, anchor=CENTER)
 passLabel.place(relx=0.5, rely=0.5, anchor=CENTER)
-passBox.place(relx=0.5, rely=0.55, anchor=CENTER)
+passBox.place(relx=0.5, rely=0.6, anchor=CENTER)
 
 #LOGIN button
-loginButton = tkinter.Button(text="LOGIN", font='Helvetica 18 bold', command=inputVal)
-loginButton.place(relx=0.5, rely=0.6, anchor=CENTER)
+loginButton = tkinter.Button(text="LOGIN", background="yellow", activebackground="#9b870c", font='Helvetica 18 bold', command=inputVal)
+loginButton.place(relx=0.5, rely=0.7, anchor=CENTER)
 
-func=pageConfig()
-
+configurePage.configure(loginScreen)
+loginScreen.geometry("250x400")
 loginScreen.mainloop()
