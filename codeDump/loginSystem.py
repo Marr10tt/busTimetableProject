@@ -5,7 +5,7 @@ import hashlib
 import mainApp
 import configurePage
 import tkmacosx
-#^^unused - buttons do not work as expected
+#^^tkmacosx is unused - buttons do not work as expected
 
 loginScreen = Tk()
 
