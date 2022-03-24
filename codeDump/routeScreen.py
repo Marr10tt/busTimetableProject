@@ -32,11 +32,16 @@ def __main__():
     
     #importing tables.py would cause circular import - added modified function here instead
     def generateTimetable(pageName, tableX, tableY, tableHeight, tableWidth):
-        fileName = routeNumber+".txt"
-        pathName = (os.getcwd()+'/testFiles/txtTests')
-        completeFileName = os.path.join(pathName, fileName)
+        tableContentsFileName = routeNumber+".txt"
+        tableDataFileName = routeNumber+"Data.txt"
+        pathName = (os.getcwd()+'/timetableFiles/txtFiles')
+        completeFileName = os.path.join(pathName, tableContentsFileName)
         tableFile = open(completeFileName, 'r')
-        tableData = tableFile.readline
+        tableInput = tableFile.readline
+
+        tableDataFile=(os.path.join(pathName, tableDataFileName))
+        tableData = open(tableDataFile, 'r')
+        tableDataContents = tableData.readlines(2)
 
         '''
         print(tableData.readlines())
@@ -47,16 +52,21 @@ def __main__():
         tableFrame.config(height=tableHeight, width=tableWidth)
         tableFrame.place(relx=tableX, rely=tableY, anchor=CENTER)
 
+        columns = []
+        for i in range (1, int(tableDataContents[1])+1):
+            columns.append(str(i))
+
         timetable = ttk.Treeview(tableFrame)
-        timetable['columns']= ('1', '2')
+        timetable['columns']=columns
 
         timetable.column("#0", width=0, stretch=NO)
-        timetable.column("1", width=400, anchor=CENTER)
-        timetable.column("2", width=400, anchor=W)
+        for i in range (1, int(tableDataContents[1])+1):
+            timetable.column(str(i), width = 150, anchor=CENTER)
 
         timetable.heading("#0", text="")
         timetable.heading("#1", text="Stop location")
-        timetable.heading("#2", text="time")
+        for i in range (2, int(tableDataContents[1])+1):
+            timetable.heading("#"+str(i), text=routeNumber)
 
         timetable.insert(parent='', index='end', iid=0, text="", values=("Doncaster Interchange", "1000"))
         timetable.insert(parent='', index='end', iid=1, text="", values=("Lakeside Village", "1000"))
