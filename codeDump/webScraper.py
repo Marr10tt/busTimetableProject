@@ -5,7 +5,7 @@ import os
 #table dimensions
 tableDict=[]
 totalTableCount=0
-widthPerTable=[]
+widthPerTable=0
 totalHeight = 0
 heightPerTable = 0
 
@@ -30,17 +30,30 @@ def webScrape(routeURL, routeName):
 	soup = BeautifulSoup(urlRequest.content, 'html5lib') 
 
 	#configures file and path naming
-	fileName = routeName+".txt"
-	pathName = ('/Users/mackenziemarriott/Documents/GitHub/busTimetableProject/codeDump/testFiles/txtTests')
-	completeFileName = os.path.join(pathName, fileName)
+	timeFileName = routeName+".txt"
+	dataFileName = routeName+"Data.txt"
+	pathName = (os.getcwd()+'/timetableFiles/txtFiles')
+	completeFileName = os.path.join(pathName, timeFileName)
 	#finds all elements with tag 'td' and writes them into the text file
 	tdValue = 0
 	tdContainer = soup.findAll('td')
+
+	openFile=open(completeFileName, 'w')
 	# goes through each td in the list and writes each value to a new line on the text file
 	for td in tdContainer:
-		with open(completeFileName, 'a') as openFile:
-			openFile.write((tdContainer[tdValue].text+'\n'))
+		openFile.write((tdContainer[tdValue].text+'\n'))
 		tdValue+=1
+	openFile.close()
+
+	totalTables()
+	tableHeight()
+	tableWidth()
+
+	tableData = [str(widthPerTable)+"\n", str(heightPerTable)]
+
+	tableDataFile = (os.path.join(pathName, dataFileName))
+	openFile = open(tableDataFile, 'w')
+	openFile.writelines(tableData)
 	openFile.close()
 
 #function to find the height of a first bus table - not including notes row
@@ -68,7 +81,7 @@ def tableWidth():
 	for i in range (1, (len(firstRow)+1)):
 		total+=1
 	total+=(totalTableCount)
-	widthPerTable.append(total)
+	widthPerTable = total
 
 #finds total amount of tables on a page
 def totalTables():
@@ -132,3 +145,16 @@ fileInput()
 '''
 
 #^^functions were called to test - no longer needed to be called, messes with the program when importing module
+
+'''
+webScrape("https://www.firstbus.co.uk/doncaster/plan-journey/timetables/?day=1&source_id=2&service=72%2F72x%2F73%2F73x&routeid=23936179&operator=34&source=sp", "73")
+totalTables()
+tableWidth()
+tableHeight()
+'''
+webScrape("https://www.firstbus.co.uk/doncaster/plan-journey/timetables/?day=1&source_id=2&service=72%2F72x%2F73%2F73x&routeid=23936179&operator=34&source=sp", "73")
+
+#print(widthPerTable)
+#print(heightPerTable)
+
+#^^ test to show working web scraping

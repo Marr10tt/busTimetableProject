@@ -5,11 +5,12 @@ import mainApp
 import routes
 import os
 import distanceCalculator
+import webScraper
 import webbrowser
 
 myFont = 'Helvetica 18 bold'
 
-routeNumber = ""
+routeNumber = "73"
 
 def __main__():
     #timetable config info
@@ -31,6 +32,17 @@ def __main__():
     
     #importing tables.py would cause circular import - added modified function here instead
     def generateTimetable(pageName, tableX, tableY, tableHeight, tableWidth):
+        fileName = routeNumber+".txt"
+        pathName = (os.getcwd()+'/testFiles/txtTests')
+        completeFileName = os.path.join(pathName, fileName)
+        tableFile = open(completeFileName, 'r')
+        tableData = tableFile.readline
+
+        '''
+        print(tableData.readlines())
+        ^^testing file output
+        '''
+
         tableFrame = Frame(pageName)
         tableFrame.config(height=tableHeight, width=tableWidth)
         tableFrame.place(relx=tableX, rely=tableY, anchor=CENTER)
@@ -60,6 +72,7 @@ def __main__():
 
         timetable.bind("<Double-1>", OnDoubleClick)
 
+        tableFile.close()
         timetable.pack()
 
     routePage = tkinter.Tk()
@@ -70,3 +83,5 @@ def __main__():
     generateTimetable(routePage, tableX, tableY, tableWidth, tableHeight)
     
     routePage.mainloop()
+
+__main__()
