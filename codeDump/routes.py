@@ -21,4 +21,4 @@ def routesPage():
     '''
     #generates sample table
     tables.tableSettings(700, 750, 0.5, 0.53)
-    tables.generateTable(routePage, routePage)
+    tables.generateTable(routePage)

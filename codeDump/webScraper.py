@@ -12,18 +12,23 @@ dimensionArray=[]
 
 fileLength = 0
 
-#gets and requests data from the url
-url = "https://www.firstbus.co.uk/doncaster/plan-journey/timetables/?day=1&source_id=2&service=72%2F72x%2F73%2F73x&routeid=23935110&operator=34&source=sp"
-urlRequest = requests.get(url)
-soup = BeautifulSoup(urlRequest.content, 'html5lib') 
-
-#configures file and path naming
-fileName = "countTest.txt"
-pathName = ('/Users/mackenziemarriott/Documents/GitHub/busTimetableProject/codeDump/testFiles/txtTests')
-completeFileName = os.path.join(pathName, fileName)
+completeFileName = ""
+soup = None
 
 #main web scraping function - finds all needed data and writes to text file
-def webScrape():
+def webScrape(routeURL, routeName):
+	global completeFileName
+	global soup
+
+	#gets and requests data from the url
+	url = routeURL
+	urlRequest = requests.get(url)
+	soup = BeautifulSoup(urlRequest.content, 'html5lib') 
+
+	#configures file and path naming
+	fileName = routeName+".txt"
+	pathName = ('/Users/mackenziemarriott/Documents/GitHub/busTimetableProject/codeDump/testFiles/txtTests')
+	completeFileName = os.path.join(pathName, fileName)
 	#finds all elements with tag 'td' and writes them into the text file
 	tdValue = 0
 	tdContainer = soup.findAll('td')
@@ -108,6 +113,7 @@ def tableDimensions():
 		dimensionArray[i].append(heightPerTable)
 	print(dimensionArray)
 
+'''
 #finds out overall data 
 lineCount()
 totalTables()
@@ -119,3 +125,6 @@ tableDimensions()
 
 #inputs timetable data to file and 3D array
 fileInput()
+'''
+
+#^^functions were called to test - no longer needed to be called, messes with the program when importing module

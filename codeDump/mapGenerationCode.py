@@ -17,8 +17,9 @@ def mapSettings(width, height, location):
     Location = location
 
 #generates the actual map selecting source, location, and places the map
-def generate():
-    map_widget = TkinterMapView(width=windowWidth, height=windowHeight, corner_radius=0)
-    map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=22)
+def generate(pageName):
+
+    map_widget = TkinterMapView(pageName, width=windowWidth, height=windowHeight, corner_radius=0)
+    map_widget.set_tile_server("https://mt0.google.com/vt/lyrs=m&hl=en&x={x}&y={y}&z={z}&s=Ga", max_zoom=22)  # google normal
     map_widget.set_address(Location, marker=True)
     map_widget.place(relx=0.2, rely=0.53, anchor=tkinter.CENTER)

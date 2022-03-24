@@ -19,7 +19,7 @@ def tableSettings(height, width, x, y):
     tableX=x
     tableY=y
 
-def generateTable(self, pageName):
+def generateTable(pageName):
     routeList = open('routeList.txt', 'r')
     content=routeList.readlines()
 
@@ -52,3 +52,8 @@ def generateTable(self, pageName):
         timetable.insert(parent='', index='end', iid=i+1, text="", values=(content[i], content[i+1]))
         i+=2
     timetable.pack()
+
+    '''
+    for i in range(0, len(content)):
+        timetable.insert(parent='', index='end', iid=i+1, text="", values=(content[i], content[i+1]))
+    '''

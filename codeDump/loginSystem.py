@@ -4,6 +4,8 @@ import tkinter.font
 import hashlib
 import mainApp
 import configurePage
+import tkmacosx
+#^^unused - buttons do not work as expected
 
 loginScreen = Tk()
 
@@ -38,8 +40,9 @@ def inputVal():
             if username=="8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918":
                 mainApp.admin=True
                 print("Admin enabled")
+
             loginScreen.destroy()
-            mainApp.mainFunc()
+            mainApp.__main__()
         else:
             #removes 1 try, displays appropriate message
             loginTries-=1
@@ -76,6 +79,16 @@ passBox.place(relx=0.5, rely=0.6, anchor=CENTER)
 loginButton = tkinter.Button(text="LOGIN", background="yellow", activebackground="#9b870c", font='Helvetica 18 bold', command=inputVal)
 loginButton.place(relx=0.5, rely=0.7, anchor=CENTER)
 
+'''
+loginButton = Button(text="LOGIN", background="yellow", activebackground="#9b870c", font='Helvetica 18 bold', command=inputVal)
+loginButton.place(relx=0.5, rely=0.7, anchor=CENTER)
+'''
+
 configurePage.configure(loginScreen)
+loginScreen.geometry("250x400+560+220")
+#^^places in centre of
+'''
 loginScreen.geometry("250x400")
+^^ places in top left, not centre
+'''
 loginScreen.mainloop()
