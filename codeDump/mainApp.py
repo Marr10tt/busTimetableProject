@@ -46,7 +46,10 @@ def __main__():
     tables.tableSettings(700, 750, 0.65, 0.53)
     tables.generateTable(mainScreen)
     
+    '''
     testButton = tkinter.Button(text="test", command=routeScreen.__main__).place(relx=0.5, rely=0.5)
+    ^ test button to test connection to route screen, and changing of displayed information
+    '''
 
     if admin == True:
         configurePage.configSettingsButton(mainScreen)

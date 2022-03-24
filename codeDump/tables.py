@@ -50,6 +50,8 @@ def generateTable(pageName):
         selectedItem = timetable.focus()
         selectedRoute = timetable.item(selectedItem, "values")[0]
         routeScreen.routeNumber=selectedRoute
+        pageName.destroy()
+        routeScreen.__main__()
 
     timetable.bind("<Double-1>", OnDoubleClick)
 

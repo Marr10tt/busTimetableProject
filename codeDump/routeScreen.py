@@ -47,6 +47,7 @@ def __main__():
         timetable.heading("#2", text="time")
 
         timetable.insert(parent='', index='end', iid=0, text="", values=("Doncaster Interchange", "1000"))
+        timetable.insert(parent='', index='end', iid=1, text="", values=("Lakeside Village", "1000"))
 
         def OnDoubleClick(self):
             global routeNumber
@@ -69,5 +70,3 @@ def __main__():
     generateTimetable(routePage, tableX, tableY, tableWidth, tableHeight)
     
     routePage.mainloop()
-
-__main__()
