@@ -2,16 +2,20 @@ from bs4 import BeautifulSoup
 import requests
 import os
 
+#table dimensions
 tableDict=[]
 totalTableCount=0
 widthPerTable=[]
 totalHeight = 0
 heightPerTable = 0
 
+#array to store dimensions
 dimensionArray=[]
 
+#length of a given text file with stop time data 
 fileLength = 0
 
+#declarations so values can be used later as globals in other functions
 completeFileName = ""
 soup = None
 

@@ -7,6 +7,7 @@ import configurePage
 import tables
 import os
 import distanceCalculator
+import routeScreen
 import time
 
 myFont='Helvetica 18 bold'
@@ -45,6 +46,8 @@ def __main__():
     tables.tableSettings(700, 750, 0.65, 0.53)
     tables.generateTable(mainScreen)
     
+    testButton = tkinter.Button(text="test", command=routeScreen.__main__).place(relx=0.5, rely=0.5)
+
     if admin == True:
         configurePage.configSettingsButton(mainScreen)
     '''

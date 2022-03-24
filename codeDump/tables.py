@@ -3,11 +3,14 @@ from tkinter import ttk
 import distanceCalculator
 import os
 import webbrowser
+import routeScreen
 
 tableHeight = 0
 tableWidth = 0
 tableX = 0
 tableY = 0
+
+selectedRoute = ""
 
 def tableSettings(height, width, x, y):
     global tableHeight
@@ -38,11 +41,15 @@ def generateTable(pageName):
     timetable.heading("#1", text="route number")
     timetable.heading("#2", text="route name")
 
-    def OnDoubleClick(pageName):
+    def OnDoubleClick(self):
+        global selectedRoute
         distanceCalculator.coordGet("Bawtry Road")
         distanceCalculator.routing()
         fileName = 'file:///'+os.getcwd()+'/'+'map.html'
-        webbrowser.open_new_tab(fileName)
+        #webbrowser.open_new_tab(fileName)
+        selectedItem = timetable.focus()
+        selectedRoute = timetable.item(selectedItem, "values")[0]
+        routeScreen.routeNumber=selectedRoute
 
     timetable.bind("<Double-1>", OnDoubleClick)
 
