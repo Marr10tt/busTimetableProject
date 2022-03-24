@@ -64,5 +64,9 @@ def routing():
     folium.GeoJson(decoded).add_to(m)
     m.save('map.html')
 
+'''
 coordGet("Thorne Road Doncaster")
 routing()
+
+^^order and example of how to run functions
+'''
