@@ -32,6 +32,9 @@ def __main__():
     
     #importing tables.py would cause circular import - added modified function here instead
     def generateTimetable(pageName, tableX, tableY, tableHeight, tableWidth):
+        tableStyle = ttk.Style()
+        tableStyle.configure("Treeview.Heading", font='Helvetica 18 bold')
+
         tableContentsFileName = routeNumber+".txt"
         tableDataFileName = routeNumber+"Data.txt"
         pathName = (os.getcwd()+'/timetableFiles/txtFiles')
