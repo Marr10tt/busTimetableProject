@@ -32,8 +32,13 @@ def __main__():
     
     #importing tables.py would cause circular import - added modified function here instead
     def generateTimetable(pageName, tableX, tableY, tableHeight, tableWidth):
+        #configuring style for headings on tables
         tableStyle = ttk.Style()
         tableStyle.configure("Treeview.Heading", font='Helvetica 18 bold')
+
+        #configuring style for table contents
+        tableContentsStyle = ttk.Style()
+        tableContentsStyle.configure("myStyle.Treeview", font='Helvetica 15')
 
         tableContentsFileName = routeNumber+".txt"
         tableDataFileName = routeNumber+"Data.txt"
@@ -59,11 +64,12 @@ def __main__():
         for i in range (1, int(tableDataContents[1])+1):
             columns.append(str(i))
 
-        timetable = ttk.Treeview(tableFrame)
+        timetable = ttk.Treeview(tableFrame, style="myStyle.Treeview")
         timetable['columns']=columns
 
         timetable.column("#0", width=0, stretch=NO)
-        for i in range (1, int(tableDataContents[1])+1):
+        timetable.column("1", width=200, anchor=CENTER)
+        for i in range (2, int(tableDataContents[1])+1):
             timetable.column(str(i), width = 150, anchor=CENTER)
 
         timetable.heading("#0", text="")
@@ -71,7 +77,7 @@ def __main__():
         for i in range (2, int(tableDataContents[1])+1):
             timetable.heading("#"+str(i), text=routeNumber)
 
-        timetable.insert(parent='', index='end', iid=0, text="", values=("Doncaster Interchange", "1000"))
+        timetable.insert(parent='', index='end', iid=0, text="POG", values=("Doncaster Interchange", "1000"))
         timetable.insert(parent='', index='end', iid=1, text="", values=("Lakeside Village", "1000"))
 
         def OnDoubleClick(self):
