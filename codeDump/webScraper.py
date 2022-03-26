@@ -50,7 +50,7 @@ def webScrape(routeURL, routeName):
 	tableWidth()
 	lineCount()
 
-	tableData = [str(widthPerTable)+"\n", str(heightPerTable)+"\n", str(lineCount)]
+	tableData = [str(widthPerTable)+"\n", str(heightPerTable)+"\n", str(fileLength)]
 
 	tableDataFile = (os.path.join(pathName, dataFileName))
 	openFile = open(tableDataFile, 'w')
@@ -82,7 +82,7 @@ def tableWidth():
 	for i in range (1, (len(firstRow)+1)):
 		total+=1
 	total+=(totalTableCount)
-	widthPerTable = total
+	widthPerTable = total+3
 
 #finds total amount of tables on a page
 def totalTables():
@@ -153,7 +153,8 @@ totalTables()
 tableWidth()
 tableHeight()
 '''
-webScrape("https://www.firstbus.co.uk/doncaster/plan-journey/timetables/?day=1&source_id=2&service=72%2F72x%2F73%2F73x&routeid=23936179&operator=34&source=sp", "73")
+#webScrape("https://www.firstbus.co.uk/doncaster/plan-journey/timetables/?day=1&source_id=2&service=87%2F87a%2F87b&routeid=23936181&operator=34&source=sp", "87")
+#webScraper was running automatically with 73 route, slowing system down
 
 #print(widthPerTable)
 #print(heightPerTable)

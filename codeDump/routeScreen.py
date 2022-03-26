@@ -10,14 +10,15 @@ import webbrowser
 
 myFont = 'Helvetica 18 bold'
 
-routeNumber = "55"
+routeNumber = "87"
 
 def __main__():
     #timetable config info
-    tableHeight = 200
-    tableWidth = 200
+    tableHeight = 400
+    tableWidth = 300
     tableX = 0.5
-    tableY = 0.5
+    tableY = 0.52
+    #0.52 to account for the headingof width 2, anchor N (means it takes rel 0.02 off the top)
 
     #cannot use below functions from configurePage.py - causes circular input
     def configHeader(pageName, headerText):
@@ -68,13 +69,13 @@ def __main__():
         for i in range (1, int(tableDataContents[1])+1):
             columns.append(str(i))
 
-        timetable = ttk.Treeview(tableFrame, style="myStyle.Treeview")
+        timetable = ttk.Treeview(tableFrame, style="myStyle.Treeview", height=30)
         timetable['columns']=columns
 
         timetable.column("#0", width=0, stretch=NO)
         timetable.column("1", width=200, anchor=CENTER)
         for i in range (2, int(tableDataContents[1])+1):
-            timetable.column(str(i), width = 75, anchor=CENTER)
+            timetable.column(str(i), width = 100, anchor=CENTER)
 
         timetable.heading("#0", text="")
         timetable.heading("#1", text="Stop location")
@@ -82,17 +83,45 @@ def __main__():
             timetable.heading("#"+str(i), text=routeNumber)
 
         i=0
+        c=0
         fileLength = tableDataContents
-        print(re.findall(r'\d+', fileLength[2])[0])
+
+        #while loop in that inputs timetable data to the table
         while i < int(re.findall(r'\d+', fileLength[2])[0]):
+            b=0
+            
             tableDataList = []
-            for b in range(0, int(re.findall(r'\d+', tableDataContents[1])[0])):
-                tableDataList.append(tableInput[b])
+
+            '''
+            #prints the first row - 0 issues
+            if i == 0:
+                for b in range(i, int(re.findall(r'\d+', tableDataContents[1])[0])+i):
+                    if b < int(re.findall(r'\d+', fileLength[2])[0]):
+                        tableDataList.append(tableInput[b])
+                        print(tableDataList)
+            # prints the second row (some issues so far)
+            else:
+                for b in range(i, int(re.findall(r'\d+', tableDataContents[1])[0])+i):
+                    if b < int(re.findall(r'\d+', fileLength[2])[0]):
+                        c+=1
+                        for d in range (0, int(re.findall(r'\d+', tableDataContents[1])[0])):
+                            tableDataList.append(tableInput[d+c])
+                        print(tableDataList)
+            # code that didnt really work - just kept repeating the same line again and again
+            '''
+            while b < int(re.findall(r'\d+', tableDataContents[1])[0]):
+                if i==0:
+                    tableDataList.append(tableInput[b+i])
+                elif b+i+int(re.findall(r'\d+', tableDataContents[1])[0]) <int(re.findall(r'\d+', tableDataContents[2])[0]):
+                    tableDataList.append(tableInput[c+int(re.findall(r'\d+', tableDataContents[1])[0])])
+                    c+=1
                 print(tableDataList)
-            print(re.findall(r'\d+', tableDataContents[1]))
+                b+=1
+            
+            #writes data to the file
             timetable.insert(parent='', index='end', iid=i, text="", values=tableDataList)
+
             print(i)
-            print(re.findall(r'\d+', fileLength[2])[0])
             print(re.findall(r'\d+', tableDataContents[1]))
             i = i+int(re.findall(r'\d+', tableDataContents[1])[0])+1
         '''
