@@ -1,8 +1,8 @@
 {
     "bbox": [
         -1.132318,
-        53.474587,
-        -1.06337,
+        53.506816,
+        -1.114545,
         53.518449
     ],
     "metadata": {
@@ -19,29 +19,29 @@
                     53.5182146
                 ],
                 [
-                    -1.0633695,
-                    53.4745867
+                    -1.1143927214998288,
+                    53.507327149999995
                 ]
             ],
             "format": "json",
             "profile": "driving-car"
         },
         "service": "routing",
-        "timestamp": 1648310785937
+        "timestamp": 1648330704385
     },
     "routes": [
         {
             "bbox": [
                 -1.132318,
-                53.474587,
-                -1.06337,
+                53.506816,
+                -1.114545,
                 53.518449
             ],
-            "geometry": "ywseI|c|EO?K@KCGGNAt@YNEDKFa@VcA^s@^g@JKpFgEtAo@LODIBCFGPGLBJHBD\\JV@VGn@[ZMb@Ih@Cl@?`@F|@VbBd@lANpACv@Qv@[h@]`A}@|ByCL]Jk@D[@MBIBKPYPMD?HAH?RELIl@o@nByCp@iApAwCv@eC`@}ApA}In@wEhAcIp@yEhBuMrBoO`@eBVq@VWPIRCnAf@`D~ApCx@`Ah@zHhEhBfAt@VnCz@FBXFb@Jr@LV@`@DlBNrBDfDGrESbEU~FYdDOjESvBEhDOp@C\\EVIVY`@aAFUPa@NQTONCbAGTBLDRHNLX@VITYRg@Lu@XiDTkEJaFBiB?yFGmJCqBOoSD}LVyPPkGPmCAs@Ie@IWE[C[@]DYHWLSNMNEP@HBHDXDVCl@]z@w@b@SnCo@j@]j@g@n@g@v@q@CSAWDUFQJMLCLBJJHVh@y@\\OTDhBhAp@Zd@NzA@zD`ATB\\@j@?V?`ARjA\\l@M\\_B@k@SmDq@}DEe@M{AA}@BoC@kCGyBEs@OeBSqBs@cHM_BAW@ULqA\\}Cd@oEd@wEBQp@sGr@aH\\}CT}BFa@f@{FXkDhAuNT}BPmBJkA@c@B_@BuB?WBuCBiABkDAs@Ee@Kw@dBoAd@MTAVD`A`@^iDFUP_@ROFApAI\\Cv@Al@Gl@YFECUC_DBe@D]Nm@\\k@",
+            "geometry": "ywseI|c|EO?K@KCGGNAt@YNEDKFa@VcA^s@^g@JKpFgEtAo@LODIBCFGPGLBJHBD\\JV@VGn@[ZMb@Ih@Cl@?`@F|@VbBd@lANpACv@Qv@[h@]`A}@|ByCL]Jk@D[@MBIBKPYPMD?HAH?RELIl@o@nByCp@iApAwCv@eC`@}ApA}In@wED{AIcAo@uA[i@g@}@ACo@mAIJE@OEGKCKAO@MDOFGRAHJXi@f@gAl@uAPWHI@AVUN_@LiA^aCBM@APg@F]?KGIGOSb@GKkAqBIKMUDODKVQT]J[",
             "segments": [
                 {
-                    "distance": 8826.3,
-                    "duration": 628.3,
+                    "distance": 2282.4,
+                    "duration": 195.8,
                     "steps": [
                         {
                             "distance": 15.2,
@@ -101,118 +101,94 @@
                             ]
                         },
                         {
-                            "distance": 1197.9,
-                            "duration": 50.7,
+                            "distance": 577.9,
+                            "duration": 24.5,
                             "exit_number": 2,
                             "instruction": "Enter the roundabout and take the 2nd exit onto White Rose Way, A6182",
                             "name": "White Rose Way, A6182",
                             "type": 7,
                             "way_points": [
                                 44,
+                                62
+                            ]
+                        },
+                        {
+                            "distance": 182.4,
+                            "duration": 26.3,
+                            "instruction": "Keep left onto Carriage Drive",
+                            "name": "Carriage Drive",
+                            "type": 12,
+                            "way_points": [
+                                62,
                                 69
                             ]
                         },
                         {
-                            "distance": 1812.7,
-                            "duration": 76.8,
-                            "instruction": "Continue straight",
-                            "name": "-",
-                            "type": 6,
-                            "way_points": [
-                                69,
-                                100
-                            ]
-                        },
-                        {
-                            "distance": 1416.5,
-                            "duration": 60.4,
-                            "exit_number": 2,
-                            "instruction": "Enter the roundabout and take the 2nd exit onto Great Yorkshire Way, A6182",
-                            "name": "Great Yorkshire Way, A6182",
-                            "type": 7,
-                            "way_points": [
-                                100,
-                                129
-                            ]
-                        },
-                        {
-                            "distance": 424.2,
-                            "duration": 50.1,
+                            "distance": 332.5,
+                            "duration": 39.9,
                             "exit_number": 3,
                             "instruction": "Enter the roundabout and take the 3rd exit",
                             "name": "-",
                             "type": 7,
                             "way_points": [
-                                129,
-                                151
+                                69,
+                                97
                             ]
                         },
                         {
-                            "distance": 2412.0,
-                            "duration": 196.4,
-                            "exit_number": 1,
-                            "instruction": "Enter the roundabout and take the 1st exit onto West End Lane",
-                            "name": "West End Lane",
-                            "type": 7,
+                            "distance": 16.1,
+                            "duration": 5.8,
+                            "instruction": "Turn left",
+                            "name": "-",
+                            "type": 0,
                             "way_points": [
-                                151,
-                                218
+                                97,
+                                98
                             ]
                         },
                         {
-                            "distance": 148.5,
-                            "duration": 35.6,
-                            "instruction": "Turn right onto Gattison Lane",
-                            "name": "Gattison Lane",
+                            "distance": 80.1,
+                            "duration": 21.3,
+                            "instruction": "Turn right",
+                            "name": "-",
                             "type": 1,
                             "way_points": [
-                                218,
-                                223
+                                98,
+                                102
                             ]
                         },
                         {
-                            "distance": 250.0,
-                            "duration": 60.0,
-                            "instruction": "Turn left onto Lansbury Avenue",
-                            "name": "Lansbury Avenue",
-                            "type": 0,
+                            "distance": 53.0,
+                            "duration": 9.5,
+                            "instruction": "Turn right",
+                            "name": "-",
+                            "type": 1,
                             "way_points": [
-                                223,
-                                234
-                            ]
-                        },
-                        {
-                            "distance": 123.9,
-                            "duration": 29.7,
-                            "instruction": "Turn left onto Smillie Road",
-                            "name": "Smillie Road",
-                            "type": 0,
-                            "way_points": [
-                                234,
-                                240
+                                102,
+                                107
                             ]
                         },
                         {
                             "distance": 0.0,
                             "duration": 0.0,
-                            "instruction": "Arrive at Smillie Road, straight ahead",
+                            "instruction": "Arrive at your destination, on the left",
                             "name": "-",
                             "type": 10,
                             "way_points": [
-                                240,
-                                240
+                                107,
+                                107
                             ]
                         }
                     ]
                 }
             ],
             "summary": {
-                "distance": 8826.3,
-                "duration": 628.3
+                "distance": 2282.4,
+                "duration": 195.8
             },
             "way_points": [
                 0,
-                240
+                107
             ]
         }
     ]

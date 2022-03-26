@@ -10,7 +10,7 @@ import webbrowser
 
 myFont = 'Helvetica 18 bold'
 
-routeNumber = "87"
+routeNumber = "73"
 
 def __main__():
     #timetable config info
@@ -152,5 +152,3 @@ def __main__():
     generateTimetable(routePage, tableX, tableY, tableWidth, tableHeight)
     
     routePage.mainloop()
-
-__main__()
