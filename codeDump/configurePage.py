@@ -21,10 +21,10 @@ def configHeader(pageName, pageTitle):
     headerLabel.config(font=myFont,width=150, height=2)
     headerLabel.place(relx=0.5, rely=0, anchor=N)
     #configures a button to take the user back to the home screen
-    homeButton=tkinter.Button(pageName, text="HOME", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[mainApp.__main__(), pageName.destroy()])
+    homeButton=tkinter.Button(pageName, text="HOME", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[pageName.destroy(), mainApp.__main__()])
     homeButton.place(relx=0.75, rely=0.025, anchor=CENTER)
     #configuration of the routes button - a button that takes the user to a list of all routes 
-    routesButton=tkinter.Button(pageName, text="ROUTES", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[routes.routesPage(), pageName.destroy()])
+    routesButton=tkinter.Button(pageName, text="ROUTES", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[pageName.destroy(), routes.routesPage()])
     routesButton.place(relx=0.65, rely=0.025, anchor=CENTER)
     #configuration of the cancellations button - does not unclude .destroy as it opens in the browser, not tkinter
     cancellationsButton = tkinter.Button(pageName, text="CANCELLATION", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[webScraper.cancellations()])
