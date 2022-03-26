@@ -45,8 +45,6 @@ def generateTable(pageName):
         global selectedRoute
         distanceCalculator.coordGet("Bawtry Road")
         distanceCalculator.routing()
-        fileName = 'file:///'+os.getcwd()+'/'+'map.html'
-        #webbrowser.open_new_tab(fileName)
         selectedItem = timetable.focus()
         selectedRoute = timetable.item(selectedItem, "values")[0]
         routeScreen.routeNumber=selectedRoute

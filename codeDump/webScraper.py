@@ -48,8 +48,9 @@ def webScrape(routeURL, routeName):
 	totalTables()
 	tableHeight()
 	tableWidth()
+	lineCount()
 
-	tableData = [str(widthPerTable)+"\n", str(heightPerTable)]
+	tableData = [str(widthPerTable)+"\n", str(heightPerTable)+"\n", str(lineCount)]
 
 	tableDataFile = (os.path.join(pathName, dataFileName))
 	openFile = open(tableDataFile, 'w')

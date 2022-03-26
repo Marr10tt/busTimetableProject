@@ -5,12 +5,12 @@ import mainApp
 import routes
 import os
 import distanceCalculator
-import webScraper
+import re
 import webbrowser
 
 myFont = 'Helvetica 18 bold'
 
-routeNumber = "73"
+routeNumber = "55"
 
 def __main__():
     #timetable config info
@@ -32,24 +32,28 @@ def __main__():
     
     #importing tables.py would cause circular import - added modified function here instead
     def generateTimetable(pageName, tableX, tableY, tableHeight, tableWidth):
-        #configuring style for headings on tables
-        tableStyle = ttk.Style()
-        tableStyle.configure("Treeview.Heading", font='Helvetica 18 bold')
-
         #configuring style for table contents
         tableContentsStyle = ttk.Style()
         tableContentsStyle.configure("myStyle.Treeview", font='Helvetica 15')
 
-        tableContentsFileName = routeNumber+".txt"
-        tableDataFileName = routeNumber+"Data.txt"
+        #configuring style for headings on tables
+        tableStyle = ttk.Style()
+        tableStyle.configure("Treeview.Heading", font='Helvetica 18 bold')
+
+        tableContentsFileName = routeNumber
+        tableDataFileName = routeNumber
+        tableContentsFileName = re.findall(r'\d+', tableContentsFileName)
+        tableContentsFileName = (tableContentsFileName[0]+'.txt')
         pathName = (os.getcwd()+'/timetableFiles/txtFiles')
         completeFileName = os.path.join(pathName, tableContentsFileName)
         tableFile = open(completeFileName, 'r')
-        tableInput = tableFile.readline
+        tableInput = tableFile.readlines()
 
+        tableDataFileName = re.findall(r'\d+', tableDataFileName)
+        tableDataFileName = tableDataFileName[0]+'Data.txt'
         tableDataFile=(os.path.join(pathName, tableDataFileName))
         tableData = open(tableDataFile, 'r')
-        tableDataContents = tableData.readlines(2)
+        tableDataContents = tableData.readlines()
 
         '''
         print(tableData.readlines())
@@ -70,15 +74,31 @@ def __main__():
         timetable.column("#0", width=0, stretch=NO)
         timetable.column("1", width=200, anchor=CENTER)
         for i in range (2, int(tableDataContents[1])+1):
-            timetable.column(str(i), width = 150, anchor=CENTER)
+            timetable.column(str(i), width = 75, anchor=CENTER)
 
         timetable.heading("#0", text="")
         timetable.heading("#1", text="Stop location")
         for i in range (2, int(tableDataContents[1])+1):
             timetable.heading("#"+str(i), text=routeNumber)
 
-        timetable.insert(parent='', index='end', iid=0, text="POG", values=("Doncaster Interchange", "1000"))
+        i=0
+        fileLength = tableDataContents
+        print(re.findall(r'\d+', fileLength[2])[0])
+        while i < int(re.findall(r'\d+', fileLength[2])[0]):
+            tableDataList = []
+            for b in range(0, int(re.findall(r'\d+', tableDataContents[1])[0])):
+                tableDataList.append(tableInput[b])
+                print(tableDataList)
+            print(re.findall(r'\d+', tableDataContents[1]))
+            timetable.insert(parent='', index='end', iid=i, text="", values=tableDataList)
+            print(i)
+            print(re.findall(r'\d+', fileLength[2])[0])
+            print(re.findall(r'\d+', tableDataContents[1]))
+            i = i+int(re.findall(r'\d+', tableDataContents[1])[0])+1
+        '''
+        timetable.insert(parent='', index='end', iid=0, text="", values=("Doncaster Interchange", "1000"))
         timetable.insert(parent='', index='end', iid=1, text="", values=("Lakeside Village", "1000"))
+        '''
 
         def OnDoubleClick(self):
             global routeNumber
@@ -91,6 +111,7 @@ def __main__():
 
         timetable.bind("<Double-1>", OnDoubleClick)
 
+        tableData.close()
         tableFile.close()
         timetable.pack()
 
