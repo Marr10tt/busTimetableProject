@@ -16,13 +16,19 @@ def configure(pageName):
 #configuers the screens header and places it
 def configHeader(pageName, pageTitle):
     global myFont
+    #configures the size and shape of the header, customisable for any page
     headerLabel = tkinter.Label(pageName, text=pageTitle)
     headerLabel.config(font=myFont,width=150, height=2)
     headerLabel.place(relx=0.5, rely=0, anchor=N)
+    #configures a button to take the user back to the home screen
     homeButton=tkinter.Button(pageName, text="HOME", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[mainApp.__main__(), pageName.destroy()])
-    homeButton.place(relx=0.85, rely=0.025, anchor=CENTER)
+    homeButton.place(relx=0.75, rely=0.025, anchor=CENTER)
+    #configuration of the routes button - a button that takes the user to a list of all routes 
     routesButton=tkinter.Button(pageName, text="ROUTES", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[routes.routesPage(), pageName.destroy()])
-    routesButton.place(relx=0.75, rely=0.025, anchor=CENTER)
+    routesButton.place(relx=0.65, rely=0.025, anchor=CENTER)
+    #configuration of the cancellations button - does not unclude .destroy as it opens in the browser, not tkinter
+    cancellationsButton = tkinter.Button(pageName, text="CANCELLATION", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[webScraper.cancellations()])
+    cancellationsButton.place(relx=0.85, rely=0.025, anchor=CENTER)
 
 def configSettingsButton(pageName):
     settingsButton = tkinter.Button(pageName, text="SETTINGS", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[settingsTopLevel()])

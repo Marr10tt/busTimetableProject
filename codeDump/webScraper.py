@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import os
+import webbrowser
 
 #table dimensions
 tableDict=[]
@@ -84,7 +85,7 @@ def tableWidth():
 	total+=(totalTableCount)
 	widthPerTable = total+3
 
-#finds total amount of tables on a page
+#finds total amount of tables on a page - not used in end product (not needed)
 def totalTables():
 	global totalTableCount
 	totalTableCount = 0
@@ -92,7 +93,7 @@ def totalTables():
 	for tr in tableCount:
 		totalTableCount+=1
 
-#creates dictionary of dimensions for all tables on a page
+#creates dictionary of dimensions for all tables on a page - not used in end product (couldnt get accurate values)
 def fileInput():
 	global tableDict
 	global totalTableCount
@@ -121,7 +122,7 @@ def lineCount():
 	with open(completeFileName, 'r') as openFile:
 		fileLength = len(openFile.readlines())
 
-#makes empty arrays to function as dimensions for each table
+#makes empty arrays to function as dimensions for each table - not used in end product
 def tableDimensions():
 	global dimensionArray
 	global heightPerTable
@@ -130,6 +131,12 @@ def tableDimensions():
 		dimensionArray[i].append(widthPerTable)
 		dimensionArray[i].append(heightPerTable)
 	print(dimensionArray)
+
+#used instaed of scraping the web to ensure low WIFI usage - this would cut bandwidth as its only accessed if/when needed
+#table on the website is also extremely difficult to read through - making issues during development and data hard to display
+def cancellations():
+	#takes user to website in order to 
+	webbrowser.open_new("https://www.firstbus.co.uk/doncaster/plan-journey/timetables/journey-cancellations")
 
 '''
 #finds out overall data 
