@@ -43,8 +43,6 @@ def generateTable(pageName):
 
     def OnDoubleClick(self):
         global selectedRoute
-        distanceCalculator.coordGet("Bawtry Road")
-        distanceCalculator.routing()
         selectedItem = timetable.focus()
         selectedRoute = timetable.item(selectedItem, "values")[0]
         routeScreen.routeNumber=selectedRoute

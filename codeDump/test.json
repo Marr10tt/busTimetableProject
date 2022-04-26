@@ -1,8 +1,8 @@
 {
     "bbox": [
         -1.132318,
-        53.506816,
-        -1.114545,
+        53.425333,
+        -1.020172,
         53.518449
     ],
     "metadata": {
@@ -19,29 +19,29 @@
                     53.5182146
                 ],
                 [
-                    -1.1143927214998288,
-                    53.507327149999995
+                    -1.0572009,
+                    53.4253526
                 ]
             ],
             "format": "json",
             "profile": "driving-car"
         },
         "service": "routing",
-        "timestamp": 1650373782322
+        "timestamp": 1650934160002
     },
     "routes": [
         {
             "bbox": [
                 -1.132318,
-                53.506816,
-                -1.114545,
+                53.425333,
+                -1.020172,
                 53.518449
             ],
-            "geometry": "ywseI|c|EO?K@KCGGNAt@YNEDKFa@VcA^s@^g@JKpFgEtAo@LODIBCFGPGLBJHBD\\JV@VGn@[ZMb@Ih@Cl@?`@F|@VbBd@lANpACv@Qv@[h@]`A}@|ByCL]Jk@D[@MBIBKPYPMD?HAH?RELIl@o@nByCp@iApAwCv@eC`@}ApA}In@wED{AIcAo@uA[i@g@}@ACo@mAIJE@OEGKCKAO@MDOFGRAHJXi@f@gAl@uAPWHI@AVUN_@LiA^aCBM@APg@F]?KGIGOSb@GKkAqBIKMUDODKVQT]J[",
+            "geometry": "ywseI|c|EO?K@KCGGNAt@YNEDKFa@VcA^s@^g@JKpFgEtAo@LODIBCFGPGLBJHBD\\JV@VGn@[ZMb@Ih@Cl@?`@F|@VbBd@lANpACv@Qv@[h@]`A}@|ByCL]Jk@D[@MBIBKPYPMD?HAH?RELIl@o@nByCp@iApAwCv@eC`@}ApA}In@wEhAcIp@yEhBuMrBoO`@eBVq@VWPIRCnAf@`D~ApCx@`Ah@zHhEhBfAt@VnCz@FBXFb@Jr@LV@`@DlBNrBDfDGrESbEU~FYdDOjESvBEhDOp@C\\EVIVY`@aAFUPa@NQTONCbAGTBLDRHNLX@VITYRg@Lu@XiDTkEJaFBiB?yFGmJCqBOoSD}LVyPPkGPmCAs@Ie@IWE[C[@]DYHWFk@Dq@GiAC_AGkBE_DHwJVaM~Cc|@d@}LJaCVoHf@cKTuCx@wGLwAD{@FgADoAB{BAiCKiCU}Cc@gDq@{DyFkYsBwKg@mEU}BGq@Eu@C{@Ai@?yB@eA@kABw@J}@PcANs@FWN{@l@gCtAcGDc@A_@C_@GSEW?s@Jm@HQLu@F_AJn@Nd@LBLFVZFRRP^N^Rz@CbAOv@W|@a@bBoA`DyDfAyArDoF`BeCzAeC^u@`@{@`AiCvAkEh@oANYb@}@vAsBh@k@LObAs@lAs@fCuAjCoApCmA|MgGlCmA~BcA~@c@xCsApDcBv@]lCmApAk@vFiCdBu@jEiBxPkHvGkCpBy@dF_BxGaBlFeBlA_@rKeDPGpCgApBw@`A_@hBs@zB}@zG}BfA_@d@QzAg@n@StDgA`HwBRIlBk@TGpDmAvPgFnAc@|Bu@hCy@nF{AbAYHExAi@~Ak@j@SpBk@RGVCH?h@AX@f@BnAT`@Fb@Fx@NdARt@Lv@LhALbDb@d@Bh@JlC\\ZETMTSxCaF\\c@LI`@?\\Jf@Tf@VbA^JB^NGn@A@QtAQfBKbBIdCCn@QpCIbAMpAU~Aa@dCO~AKdBKhBS~DEdDFbGNvCn@zMl@xMZdDbAjIl@xFZdCf@rBhEhNn@rBL^r@pCfFhZPdA`@`Cp@xDj@vCz@pFdAjIVlDFvACjAIr@Ed@NZ??",
             "segments": [
                 {
-                    "distance": 2282.4,
-                    "duration": 195.8,
+                    "distance": 18097.9,
+                    "duration": 899.2,
                     "steps": [
                         {
                             "distance": 15.2,
@@ -101,94 +101,130 @@
                             ]
                         },
                         {
-                            "distance": 577.9,
-                            "duration": 24.5,
+                            "distance": 1197.9,
+                            "duration": 50.7,
                             "exit_number": 2,
                             "instruction": "Enter the roundabout and take the 2nd exit onto White Rose Way, A6182",
                             "name": "White Rose Way, A6182",
                             "type": 7,
                             "way_points": [
                                 44,
-                                62
-                            ]
-                        },
-                        {
-                            "distance": 182.4,
-                            "duration": 26.3,
-                            "instruction": "Keep left onto Carriage Drive",
-                            "name": "Carriage Drive",
-                            "type": 12,
-                            "way_points": [
-                                62,
                                 69
                             ]
                         },
                         {
-                            "distance": 332.5,
-                            "duration": 39.9,
-                            "exit_number": 3,
-                            "instruction": "Enter the roundabout and take the 3rd exit",
+                            "distance": 1812.7,
+                            "duration": 76.8,
+                            "instruction": "Continue straight",
                             "name": "-",
-                            "type": 7,
+                            "type": 6,
                             "way_points": [
                                 69,
-                                97
+                                100
                             ]
                         },
                         {
-                            "distance": 16.1,
-                            "duration": 5.8,
-                            "instruction": "Turn left",
-                            "name": "-",
+                            "distance": 1416.5,
+                            "duration": 60.4,
+                            "exit_number": 2,
+                            "instruction": "Enter the roundabout and take the 2nd exit onto Great Yorkshire Way, A6182",
+                            "name": "Great Yorkshire Way, A6182",
+                            "type": 7,
+                            "way_points": [
+                                100,
+                                129
+                            ]
+                        },
+                        {
+                            "distance": 3173.7,
+                            "duration": 160.4,
+                            "exit_number": 1,
+                            "instruction": "Enter the roundabout and take the 1st exit onto Great Yorkshire Way, A6182",
+                            "name": "Great Yorkshire Way, A6182",
+                            "type": 7,
+                            "way_points": [
+                                129,
+                                182
+                            ]
+                        },
+                        {
+                            "distance": 99.6,
+                            "duration": 15.8,
+                            "exit_number": 1,
+                            "instruction": "Enter the roundabout and take the 1st exit onto Great Yorkshire Way, A6182",
+                            "name": "Great Yorkshire Way, A6182",
+                            "type": 7,
+                            "way_points": [
+                                182,
+                                189
+                            ]
+                        },
+                        {
+                            "distance": 32.6,
+                            "duration": 1.4,
+                            "instruction": "Turn sharp right onto Great Yorkshire Way, A6182",
+                            "name": "Great Yorkshire Way, A6182",
+                            "type": 3,
+                            "way_points": [
+                                189,
+                                191
+                            ]
+                        },
+                        {
+                            "distance": 6744.9,
+                            "duration": 354.6,
+                            "exit_number": 1,
+                            "instruction": "Enter the roundabout and take the 1st exit onto Great North Road, A638",
+                            "name": "Great North Road, A638",
+                            "type": 7,
+                            "way_points": [
+                                191,
+                                302
+                            ]
+                        },
+                        {
+                            "distance": 2566.7,
+                            "duration": 108.7,
+                            "instruction": "Turn right onto Tickhill Road, A631",
+                            "name": "Tickhill Road, A631",
+                            "type": 1,
+                            "way_points": [
+                                302,
+                                344
+                            ]
+                        },
+                        {
+                            "distance": 12.8,
+                            "duration": 1.8,
+                            "instruction": "Turn left onto Bawtry Road",
+                            "name": "Bawtry Road",
                             "type": 0,
                             "way_points": [
-                                97,
-                                98
-                            ]
-                        },
-                        {
-                            "distance": 80.1,
-                            "duration": 21.3,
-                            "instruction": "Turn right",
-                            "name": "-",
-                            "type": 1,
-                            "way_points": [
-                                98,
-                                102
-                            ]
-                        },
-                        {
-                            "distance": 53.0,
-                            "duration": 9.5,
-                            "instruction": "Turn right",
-                            "name": "-",
-                            "type": 1,
-                            "way_points": [
-                                102,
-                                107
+                                344,
+                                346
                             ]
                         },
                         {
                             "distance": 0.0,
                             "duration": 0.0,
-                            "instruction": "Arrive at your destination, on the left",
+                            "instruction": "Arrive at Bawtry Road, straight ahead",
                             "name": "-",
                             "type": 10,
                             "way_points": [
-                                107,
-                                107
+                                346,
+                                346
                             ]
                         }
                     ]
                 }
             ],
             "summary": {
-                "distance": 2282.4,
-                "duration": 195.8
+                "distance": 18097.9,
+                "duration": 899.2
             },
             "way_points": [
                 0,
-                107
+                346
             ]
         }
     ]
