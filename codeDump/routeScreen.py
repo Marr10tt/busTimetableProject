@@ -23,8 +23,8 @@ def __main__():
     #cannot use below functions from configurePage.py - causes circular input
     def configHeader(pageName, headerText):
         headerLabel = tkinter.Label(pageName, text=headerText, font=myFont, width=150, height=2).place(relx=0.5, rely=0, anchor=N)
-        homeButton=tkinter.Button(pageName, text="HOME", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[mainApp.__main__(), pageName.destroy()]).place(relx=0.85, rely=0.025, anchor=CENTER)
-        routesButton=tkinter.Button(pageName, text="ROUTES", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[routes.routesPage(), pageName.destroy()]).place(relx=0.75, rely=0.025, anchor=CENTER)
+        homeButton=tkinter.Button(pageName, text="HOME", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[pageName.destroy(), mainApp.__main__()]).place(relx=0.85, rely=0.025, anchor=CENTER)
+        routesButton=tkinter.Button(pageName, text="ROUTES", background="yellow", activebackground="#9b870c", font=myFont, command=lambda:[pageName.destroy(), routes.routesPage()]).place(relx=0.75, rely=0.025, anchor=CENTER)
     
     def configurePage(pageName):
         pageName.title("Brighter Futures Bus Application")
