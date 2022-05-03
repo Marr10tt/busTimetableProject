@@ -85,7 +85,7 @@ loginButton.place(relx=0.5, rely=0.7, anchor=CENTER)
 '''
 
 configurePage.configure(loginScreen)
-loginScreen.geometry("250x400+560+220")
+loginScreen.geometry("600x500+450+170")
 #^^places in centre of
 '''
 loginScreen.geometry("250x400")

@@ -1,0 +1,30 @@
+screen = tkinter.Tk
+overallFont = Helvetica
+screenSize = 1920x1080
+
+currentscreen = screen
+
+function generateHeader():
+	headerLabel = label(currentscreen, text="Brighter futures bus app", font="overallFont")
+	headerLabel place(coordinates)
+
+function generateTable():
+	table = ttk(currentscreen)
+	columns = (define column names)
+	table.insert (input data here)
+	table.place (coordinates)
+
+function generateMap():
+	border = label(yellow)
+	border place(coordinates)
+	map = tkintermapview(map settings)
+	map.server = (map source)
+	map.highlight(highlight location)
+	map.place(coordinates)
+
+generateHeader()
+generateTable()
+generateMap()
+screen.mainloop()
+
+

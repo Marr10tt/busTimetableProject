@@ -29,6 +29,9 @@ def __main__():
     configurePage.configure(mainScreen)
     configurePage.configHeader(mainScreen, "Main Screen")
 
+    #creates a border for the map
+    borderLabel = tkinter.Label(mainScreen, bg = "yellow", width=45, height=40).place(relx=0.2, rely=0.55, anchor=CENTER)
+
     #calls both necessary functions to place the map onto the main screen
     mapGenerationCode.mapSettings(400, 600, "doncaster")
     mapGenerationCode.generate(mainScreen)
